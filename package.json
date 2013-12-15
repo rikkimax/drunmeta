@@ -1,0 +1,48 @@
+{
+	"name": "drunmeta",
+	"description": "A minimal D application.",
+	"copyright": "Copyright © 2013, rikki",
+	"authors": ["rikki"],
+	"sourcePaths": [],
+	"subPackages": [
+		{
+			"name": "interpreter",
+			"targetType": "library",
+			"sourcePaths": ["source/interpreter"]
+		},
+		{
+			"name": "json",
+			"targetType": "library",
+			"sourcePaths": [
+				"source/interpreter",
+				"source/json"
+			],
+			"dependencies": {
+				"vibe-d": "~master"
+			}
+		}
+	],
+	"configurations": [
+		{
+			"name": "main",
+			"targetType": "library",
+			"versions": ["VibeCustomMain"],
+			"sourcePaths": [
+				"source/interpreter"
+			]
+		},
+		{
+			"name": "libtest",
+			"targetType": "executable",
+			"dflags": ["-main"],
+			"versions": ["VibeCustomMain"],
+			"sourcePaths": [
+				"source/interpreter",
+				"source/json"
+			],
+			"dependencies": {
+				"vibe-d": "~master"
+			}
+		}
+	]
+}
